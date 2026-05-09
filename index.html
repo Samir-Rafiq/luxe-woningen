@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luxe woningen — Premium vastgoed in Amsterdam, Rotterdam, Utrecht, Den Haag en Haarlem.">
+  <title>Luxe Woningen — Premium Vastgoed</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/listings.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVIGATIE ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-mark">LW</span>
+        <span class="header__logo-text">Luxe Woningen</span>
+      </a>
+      <nav class="header__nav" aria-label="Hoofdnavigatie">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link header__nav-link--active">Aanbod</a></li>
+          <li><a href="#" class="header__nav-link">Over ons</a></li>
+          <li><a href="#" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="btn btn--outline header__cta">Bezichtiging aanvragen</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO SECTIE ===== -->
+    <section class="hero" aria-label="Hero introductie">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Exclusief vastgoed in Nederland</p>
+        <h1 class="hero__title">Wonen op uw niveau</h1>
+        <p class="hero__subtitle">
+          Ontdek ons zorgvuldig geselecteerde aanbod van premium woningen in de meest gewilde steden van Nederland.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== FILTER + LISTINGS WRAPPER ===== -->
+    <section class="listings-section" aria-label="Woningen overzicht">
+      <div class="container">
+        <div class="listings-layout">
+
+          <!-- ===== FILTERPANEEL ===== -->
+          <aside class="filter-panel" aria-label="Filters">
+            <div class="filter-panel__header">
+              <h2 class="filter-panel__title">Filters</h2>
+              <button class="filter-panel__reset btn btn--ghost" id="btnResetFilters" type="button">
+                Reset filters
+              </button>
+            </div>
+
+            <!-- Prijs filter -->
+            <div class="filter-group">
+              <h3 class="filter-group__label">Prijs</h3>
+              <div class="filter-range">
+                <div class="filter-range__values">
+                  <span id="prijsMinLabel">€ 100.000</span>
+                  <span id="prijsMaxLabel">€ 5.000.000</span>
+                </div>
+                <div class="filter-range__sliders">
+                  <label for="prijsMin" class="sr-only">Minimumprijs</label>
+                  <input
+                    type="range"
+                    id="prijsMin"
+                    class="filter-range__slider"
+                    min="100000"
+                    max="5000000"
+                    step="25000"
+                    value="100000"
+                    aria-label="Minimumprijs"
+                  >
+                  <label for="prijsMax" class="sr-only">Maximumprijs</label>
+                  <input
+                    type="range"
+                    id="prijsMax"
+                    class="filter-range__slider"
+                    min="100000"
+                    max="5000000"
+                    step="25000"
+                    value="5000000"
+                    aria-label="Maximumprijs"
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Locatie filter -->
+            <div class="filter-group">
+              <h3 class="filter-group__label">Locatie</h3>
+              <label for="filterStad" class="sr-only">Kies een stad</label>
+              <select id="filterStad" class="filter-select">
+                <option value="">Alle steden</option>
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Rotterdam">Rotterdam</option>
+                <option value="Utrecht">Utrecht</option>
+                <option value="Den Haag">Den Haag</option>
+                <option value="Haarlem">Haarlem</option>
+              </select>
+            </div>
+
+            <!-- Aantal kamers filter -->
+            <div class="filter-group">
+              <h3 class="filter-group__label">Aantal kamers</h3>
+              <div class="filter-toggle-group" role="group" aria-label="Aantal kamers kiezen">
+                <button class="filter-toggle" data-kamers="1" type="button">1</button>
+                <button class="filter-toggle" data-kamers="2" type="button">2</button>
+                <button class="filter-toggle" data-kamers="3" type="button">3</button>
+                <button class="filter-toggle" data-kamers="4" type="button">4</button>
+                <button class="filter-toggle" data-kamers="5" type="button">5+</button>
+              </div>
+            </div>
+
+            <!-- Type woning filter -->
+            <div class="filter-group">
+              <h3 class="filter-group__label">Type woning</h3>
+              <label for="filterType" class="sr-only">Kies een woningtype</label>
+              <select id="filterType" class="filter-select">
+                <option value="">Alle types</option>
+                <option value="Appartement">Appartement</option>
+                <option value="Tussenwoning">Tussenwoning</option>
+                <option value="Hoekwoning">Hoekwoning</option>
+                <option value="Vrijstaand">Vrijstaand</option>
+                <option value="Villa">Villa</option>
+                <option value="Penthouse">Penthouse</option>
+              </select>
+            </div>
+
+            <!-- Oppervlakte filter -->
+            <div class="filter-group">
+              <h3 class="filter-group__label">Oppervlakte (m²)</h3>
+              <div class="filter-range">
+                <div class="filter-range__values">
+                  <span id="oppMinLabel">30 m²</span>
+                  <span id="oppMaxLabel">500 m²</span>
+                </div>
+                <div class="filter-range__sliders">
+                  <label for="oppMin" class="sr-only">Minimale oppervlakte</label>
+                  <input
+                    type="range"
+                    id="oppMin"
+                    class="filter-range__slider"
+                    min="30"
+                    max="500"
+                    step="10"
+                    value="30"
+                    aria-label="Minimale oppervlakte"
+                  >
+                  <label for="oppMax" class="sr-only">Maximale oppervlakte</label>
+                  <input
+                    type="range"
+                    id="oppMax"
+                    class="filter-range__slider"
+                    min="30"
+                    max="500"
+                    step="10"
+                    value="500"
+                    aria-label="Maximale oppervlakte"
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Voorzieningen filter -->
+            <div class="filter-group">
+              <h3 class="filter-group__label">Voorzieningen</h3>
+              <div class="filter-checkboxes">
+                <label class="filter-checkbox">
+                  <input type="checkbox" value="tuin" class="filter-checkbox__input" id="voorziTuin">
+                  <span class="filter-checkbox__box"></span>
+                  <span class="filter-checkbox__label">Tuin</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" value="garage" class="filter-checkbox__input" id="voorziGarage">
+                  <span class="filter-checkbox__box"></span>
+                  <span class="filter-checkbox__label">Garage</span>
+                </label>
+                <label class="filter-checkbox">
+                  <input type="checkbox" value="balkon" class="filter-checkbox__input" id="voorziBalkon">
+                  <span class="filter-checkbox__box"></span>
+                  <span class="filter-checkbox__label">Balkon</span>
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- ===== LISTINGS GEBIED ===== -->
+          <div class="listings-area">
+            <!-- Resultaten teller -->
+            <div class="listings-header">
+              <p class="listings-count" id="listingsCount" aria-live="polite">
+                <span id="aantalGevonden">12</span> woningen gevonden
+              </p>
+            </div>
+
+            <!-- Listings grid -->
+            <div class="listings-grid" id="listingsGrid" aria-label="Woningen overzicht">
+              <!-- Kaarten worden gegenereerd via listings.js -->
+            </div>
+
+            <!-- Geen resultaten melding -->
+            <div class="listings-empty" id="listingsEmpty" hidden aria-live="polite">
+              <p class="listings-empty__text">Geen woningen gevonden met de huidige filters.</p>
+              <button class="btn btn--gold" id="btnResetEmpty" type="button">Reset filters</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo-mark">LW</span>
+        <span class="footer__tagline">Premium vastgoed in Nederland</span>
+      </div>
+      <p class="footer__copy">&copy; 2024 Luxe Woningen. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/listings.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+/* =============================================
+   Listings — Luxe Woningen
+   Grid en woningkaarten
+   ============================================= */
+
+/* --- Listings header (teller) --- */
+.listings-header {
+  margin-bottom: var(--space-6);
+}
+
+.listings-count {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: var(--font-medium);
+}
+
+/* --- Grid --- */
+.listings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+/* --- Geen resultaten --- */
+.listings-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-16) var(--space-8);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.listings-empty__text {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+/* --- Woningkaart --- */
+.listing-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal),
+              transform var(--transition-normal);
+}
+
+.listing-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+/* --- Afbeelding --- */
+.listing-card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  flex-shrink: 0;
+}
+
+.listing-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.listing-card:hover .listing-card__image {
+  transform: scale(1.04);
+}
+
+.listing-card__type-badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  background-color: rgba(13, 13, 13, 0.85);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  backdrop-filter: blur(4px);
+}
+
+/* --- Kaart inhoud --- */
+.listing-card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-3);
+}
+
+.listing-card__location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.listing-card__location-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.listing-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  line-height: var(--leading-tight);
+  transition: color var(--transition-fast);
+}
+
+.listing-card:hover .listing-card__title {
+  color: var(--color-gold-light);
+}
+
+.listing-card__price {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-gold);
+  letter-spacing: -0.01em;
+}
+
+/* --- Kenmerken --- */
+.listing-card__specs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.listing-card__spec {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.listing-card__spec-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-subtle);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+/* --- Voorzieningen --- */
+.listing-card__amenities {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.listing-card__amenity {
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  text-transform: capitalize;
+}
+
+/* --- Detail link --- */
+.listing-card__link {
+  display: block;
+}
+
+/* --- Tablet grid --- */
+@media (min-width: 640px) {
+  .listings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Desktop grid (3 kolommen wanneer sidebar open is) --- */
+@media (min-width: 1280px) {
+  .listings-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .listing-card__image-wrapper {
+    height: 200px;
+  }
+}

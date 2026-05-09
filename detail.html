@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Woningdetail — Luxe Woningen">
+  <title>Woningdetail — Luxe Woningen</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVIGATIE ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-mark">LW</span>
+        <span class="header__logo-text">Luxe Woningen</span>
+      </a>
+      <nav class="header__nav" aria-label="Hoofdnavigatie">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link">Aanbod</a></li>
+          <li><a href="#" class="header__nav-link">Over ons</a></li>
+          <li><a href="#" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="btn btn--outline header__cta">Bezichtiging aanvragen</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Terugknop -->
+      <a href="index.html" class="detail-back">
+        <svg class="detail-back__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Terug naar overzicht
+      </a>
+
+      <!-- Detail inhoud wordt gegenereerd via JavaScript -->
+      <div id="detailInhoud"></div>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo-mark">LW</span>
+        <span class="footer__tagline">Premium vastgoed in Nederland</span>
+      </div>
+      <p class="footer__copy">&copy; 2024 Luxe Woningen. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/detail.js"></script>
+
+</body>
+</html>
